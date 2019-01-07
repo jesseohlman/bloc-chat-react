@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Link} from 'react-router-dom';
 import * as firebase from 'firebase';
+import RoomList from './components/RoomList';
 
  // Initialize Firebase
  var config = {
@@ -15,20 +16,19 @@ import * as firebase from 'firebase';
 firebase.initializeApp(config);
 
 class App extends Component {
-  constructor(props){
-    super(props);
 
-    this.state = {
-      rooms: []
-    };
-
-    this.roomsRef = this.props.firebase.database().ref('rooms');
-  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
         </header>
+        <div>
+        <nav>
+          <Link to='/RoomList' >RoomList</Link>
+        </nav>
+        </div>
+
+        <Route path='/RoomList' Component={RoomList}/>
       </div>
     );
   }
