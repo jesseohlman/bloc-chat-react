@@ -3,6 +3,7 @@ import './App.css';
 import {Route, Link} from 'react-router-dom';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
+import BrowserRouter from 'react-browser-router';
 
  // Initialize Firebase
  var config = {
@@ -20,15 +21,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-        </header>
-        <div>
-        <nav>
-          <Link to='/RoomList' >RoomList</Link>
+      <header>
+        <div className="columns is-centered is-full">
+        <nav className="navbar">
+        
         </nav>
         </div>
-
-        <Route path='/RoomList' Component={RoomList}/>
+<h1 className="title has-text-centered is-2 has-text-success">Bloc Jams</h1>
+<main>
+<BrowserRouter>
+<div>
+<Route exact path="/" component={RoomList} />
+</div>
+</BrowserRouter>
+</main>
+      </header>
       </div>
     );
   }

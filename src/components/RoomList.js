@@ -22,11 +22,14 @@ componentsDidMount(){
 
 render(){
 return(
+   
+   <div className="chat-rooms">
 <table>
 <tbody>
-{this.state.rooms.map((i) => {<tr>{i}</tr>})}
+{this.state.rooms.map((item, index) => {return<tr key={index}><td>{item}</td></tr>})}
 </tbody>
 </table>
+</div>
 )
 }
 }
