@@ -29,7 +29,6 @@ return(
    
    <div className="chat-rooms">
 <div>{console.log(this.state.rooms)}</div>
-<div>{this.state.rooms}</div>
 <h1>test</h1>
 <table>
       <tbody>

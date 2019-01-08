@@ -6,12 +6,12 @@ import RoomList from './components/RoomList';
 import { BrowserRouter } from 'react-router-dom'
 
 var config = {
-  apiKey: "AIzaSyBsRjFfGzk2G2ezQ2cUU79ah-5CRiC39eA",
-  authDomain: "bloc-chat-2-3b676.firebaseapp.com",
-  databaseURL: "https://bloc-chat-2-3b676.firebaseio.com",
-  projectId: "bloc-chat-2-3b676",
-  storageBucket: "bloc-chat-2-3b676.appspot.com",
-  messagingSenderId: "367123375755"
+  apiKey: "AIzaSyC4FdPuT6IS3Oa1KBZc7btSW6BlQ0L8Rks",
+  authDomain: "bloc-chat-3-41648.firebaseapp.com",
+  databaseURL: "https://bloc-chat-3-41648.firebaseio.com",
+  projectId: "bloc-chat-3-41648",
+  storageBucket: "bloc-chat-3-41648.appspot.com",
+  messagingSenderId: "997338147084"
 };
 firebase.initializeApp(config);
 
@@ -22,17 +22,16 @@ firebase.initializeApp(config);
       return (
         <div className="App">
           <header>
-            <div className="columns is-centered is-full">
-              <nav className="navbar" />
+            <div className="nav">
+              <nav className="navbar"></nav>
             </div>
-            <h1 className="title has-text-centered is-2 has-text-success">
+            <h1 className="title">
               Bloc Chat
             </h1>
-            <main>
-              <RoomList firebase={firebase} />
-            </main>
           </header>
-          <div>{console.log(firebase)}</div>
+          <div>
+          <RoomList firebase={firebase} />
+          </div>
         </div>
       );
     }
