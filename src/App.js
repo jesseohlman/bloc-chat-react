@@ -32,6 +32,7 @@ import { BrowserRouter } from 'react-router-dom'
               <RoomList firebase={firebase} />
             </main>
           </header>
+          <div>{console.log(firebase)}</div>
         </div>
       );
     }

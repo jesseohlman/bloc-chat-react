@@ -28,10 +28,15 @@ render(){
 return(
    
    <div className="chat-rooms">
+<div>{console.log(this.props.firebase)}</div>
+<h1>test</h1>
 <table>
 <tbody>
-{this.state.rooms.map((item, index) => {return<tr key={index}><td>{item}</td></tr>})}
-</tbody>
+<tr>
+{
+this.state.rooms.map(room => {return<td>{room}</td>})
+}
+</tr></tbody>
 </table>
 </div>
 )
