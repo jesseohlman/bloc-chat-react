@@ -5,16 +5,16 @@ import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import { BrowserRouter } from 'react-router-dom'
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBsRjFfGzk2G2ezQ2cUU79ah-5CRiC39eA",
-    authDomain: "bloc-chat-2-3b676.firebaseapp.com",
-    databaseURL: "https://bloc-chat-2-3b676.firebaseio.com",
-    projectId: "bloc-chat-2-3b676",
-    storageBucket: "bloc-chat-2-3b676.appspot.com",
-    messagingSenderId: "367123375755"
-  };
-  firebase.initializeApp(config);
+var config = {
+  apiKey: "AIzaSyBsRjFfGzk2G2ezQ2cUU79ah-5CRiC39eA",
+  authDomain: "bloc-chat-2-3b676.firebaseapp.com",
+  databaseURL: "https://bloc-chat-2-3b676.firebaseio.com",
+  projectId: "bloc-chat-2-3b676",
+  storageBucket: "bloc-chat-2-3b676.appspot.com",
+  messagingSenderId: "367123375755"
+};
+firebase.initializeApp(config);
+
 
 
  class App extends Component {
