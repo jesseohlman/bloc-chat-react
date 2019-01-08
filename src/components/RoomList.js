@@ -13,8 +13,8 @@ class RoomList extends Component{
     }      
     
 
-componentsDidMount(){
-    
+componentDidMount(){
+    console.log('running')
     this.roomsRef.on('child_added', snapshot => {
         const room = snapshot.val();
         room.key = snapshot.key;
@@ -28,7 +28,7 @@ render(){
 return(
    
    <div className="chat-rooms">
-<div>{console.log(this.props.firebase)}</div>
+<div>{console.log(this.state.rooms)}</div>
 <h1>test</h1>
 <table>
 <tbody>
