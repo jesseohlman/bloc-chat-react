@@ -33,7 +33,6 @@ firebase.initializeApp(config);
 
    handleRoomClick(room){
     this.setState({currentRoom: room});
-    console.log(this.state.currentRoom);
         }
 
         handleSignIn(){
@@ -73,7 +72,8 @@ firebase.initializeApp(config);
               <Route path="/messagelist" render={(props) => 
                 <MessageList {...props} firebase={firebase}
                    rooms={this.state.rooms}
-                    currentRoom={this.state.currentRoom}/>}/>
+                    currentRoom={this.state.currentRoom}
+              currentUser={this.state.currentUser}/>}/>
             </main>
             </BrowserRouter>
           </header>

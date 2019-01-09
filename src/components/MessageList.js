@@ -7,7 +7,7 @@ class MessageList extends Component{
 
         this.state = {
             messages: [],
-            newMessages: ''
+            newMessage: ''
         }
 
         this.messagesRef = this.props.firebase.database().ref('messages');
@@ -25,7 +25,16 @@ class MessageList extends Component{
         return arr.filter((item)=>this.props.currentRoom.name === item.roomID);
     }
 
+    compose(e){
+        this.messagesRef.push({content: e, 
+            roomID: this.props.currentRoom.name, 
+            sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
+            username: this.props.currentUser});
+    }
 
+    newMessage(txt){
+        this.setState({newMessage: txt.target.value});
+    }
 
     render(){
         return(
@@ -35,7 +44,11 @@ class MessageList extends Component{
     this.filterMessages(this.state.messages).map( (message) => 
   <div>{message.content}</div>
    )}
+   <div id="new-message">
+   <textarea rows="4" cols="50" onChange={(e)=>this.newMessage(e)}>Enter your message here</textarea>
+   <input type="submit" onClick={()=>this.compose(this.state.newMessage)}/>
 
+   </div>
 </div>
         );
     }
