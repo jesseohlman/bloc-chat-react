@@ -22,7 +22,6 @@ class MessageList extends Component{
     }
 
     filterMessages(arr){
-        console.log(this.props.currentRoom.name);
         return arr.filter((item)=>this.props.currentRoom.name === item.roomID);
     }
 
