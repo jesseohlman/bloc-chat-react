@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import ActiveRoom from './ActiveRoom'
 
 class RoomList extends Component{
     constructor(props){
@@ -7,17 +7,16 @@ class RoomList extends Component{
     
         this.state = {
           rooms: [],
-          inputValue: ''
+          inputValue: '',
+          currentRoom: ''
         };
     
         this.roomsRef = this.props.firebase.database().ref('rooms');
-        console.log( this.roomsRef);
     }      
     
 
     componentDidMount() {
         this.roomsRef.on('child_added', snapshot => {
-            console.log(snapshot);
             const room = snapshot.val();
             room.key = snapshot.key;
             this.setState({ rooms: this.state.rooms.concat( room ) })
@@ -47,7 +46,7 @@ return(
             <tr>
             {
               this.state.rooms.map( (room) =>
-            <td>{room.name}</td>
+            <td key={room.key} onClick={()=>this.props.handleRoomClick(room)}>{room.name}</td>
              )}
        </tr>
        
@@ -61,7 +60,9 @@ return(
 </div>
 <input type="submit" onClick={()=>this.createRoom(this.state.inputValue)}/>
 </form>
-<h1>test</h1>
+<div>
+<ActiveRoom currentRoom={this.state.currentRoom}/>
+</div>
 </div>
 </div>
 )
