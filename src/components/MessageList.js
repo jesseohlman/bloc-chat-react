@@ -16,7 +16,6 @@ class MessageList extends Component{
     componentDidMount() {
         this.messagesRef.on('child_added', snapshot => {
             const message = snapshot.val();
-            //message.key = snapshot.key;
             this.setState({ messages: this.state.messages.concat( message ) });
         });
     }
@@ -30,6 +29,9 @@ class MessageList extends Component{
             roomID: this.props.currentRoom.name, 
             sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
             username: this.props.currentUser});
+            var ta = document.getElementById('ta');
+            ta.value = '';
+
     }
 
     newMessage(txt){
@@ -45,9 +47,9 @@ class MessageList extends Component{
   <div>{message.content}</div>
    )}
    <div id="new-message">
-   <textarea rows="4" cols="50" onChange={(e)=>this.newMessage(e)}>Enter your message here</textarea>
+   <textarea id="ta"rows="4" cols="50" placeholder="Enter your message here" 
+   onChange={(e)=>this.newMessage(e)}></textarea>
    <input type="submit" onClick={()=>this.compose(this.state.newMessage)}/>
-
    </div>
 </div>
         );

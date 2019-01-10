@@ -61,7 +61,6 @@ return(
 <input type="submit" onClick={()=>this.createRoom(this.state.inputValue)}/>
 </form>
 <div>
-<ActiveRoom currentRoom={this.state.currentRoom}/>
 </div>
 </div>
 </div>
