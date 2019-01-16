@@ -8,7 +8,8 @@ class RoomList extends Component{
         this.state = {
           rooms: [],
           inputValue: '',
-          currentRoom: ''
+          currentRoom: '',
+          deleteName: ''
         };
     
         this.roomsRef = this.props.firebase.database().ref('rooms');
@@ -33,13 +34,21 @@ class RoomList extends Component{
       this.setState({inputValue: txt.target.value})
     }
 
+    updateDelete(txt){
+        this.setState({deleteName: txt.target.value});
+    }
+
+    deleteRoom(room){
+        const index = this.roomsRef.findIndex(this.roomsRef.name === room);
+        this.roomsRef.name.splice(index, 1);
+    }
 
 
 render(){
 return(
    
    <div className="chat-rooms">
-<div>{console.log(this.state.rooms)}</div>
+<div>{console.log(this.roomsRef)}</div>
 
 <table>
       <tbody>
@@ -59,6 +68,8 @@ return(
 <label for="new-room">Enter the room's name</label>
 </div>
 <input type="submit" onClick={()=>this.createRoom(this.state.inputValue)}/>
+<input type="text" onChange={(txt)=>this.updateDelete(txt)}/>
+<button onClick={()=>this.deleteRoom(this.state.deleteName)}>delete</button>
 </form>
 <div>
 </div>
